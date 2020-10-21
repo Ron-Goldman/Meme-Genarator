@@ -23,12 +23,26 @@
 
     <section class="meme-editor">
         <div class="canvas-container">
-            <canvas id="meme-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+            <canvas id="meme-canvas" height="500" width="500" onclick="draw(event)"></canvas>
         </div>
 
-        <div class="text-input">
-            <input class="dynamic-input" id="text" type="text" value="" placeholder="type here to add" />
-            <input type="button" value="Add Text" onclick="onAddText()"/>
+        <div class="user-input">
+            <div class="user-text">
+                <input class="text-input" id="text" type="text" value="" placeholder="type here to add" />
+                <input onclick="onAddText()" type="button" value="Add Text"  />
+            </div>
+            <div class="user-font-size">
+                <button onclick="onFontChange(3)">+</button>
+                font size : <span class="font-size">30</span>
+                <button onclick="onFontChange(-3)">-</button>
+            </div>
+            <div class="user-move-text">
+                <button onclick="onMoveText(-10)">up</button>
+                <button onclick="onMoveText(10)">down</button>
+            </div>
+            <div class="user-focus-text">
+                <button onclick="onFocusText()">next text</button>
+            </div>
         </div>
     </section>
 
@@ -36,8 +50,8 @@
         <h1>Gallery</h1>
         <section class="gallery-container">
             <div><img onclick="onAddImgToMeme(1)" src="images/1.jpg" alt=""></div>
-            <div><img onclick="onAddImgToMeme(2)"src="images/2.jpg" alt=""></div>
-            <div><img onclick="onAddImgToMeme(3)"src="images/3.jpg" alt=""></div>
+            <div><img onclick="onAddImgToMeme(2)" src="images/2.jpg" alt=""></div>
+            <div><img onclick="onAddImgToMeme(3)" src="images/3.jpg" alt=""></div>
 
 
         </section>
