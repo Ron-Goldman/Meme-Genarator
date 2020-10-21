@@ -20,6 +20,28 @@ body{
     
 }
 
+/* meme editor */
+
+/* canvas */
+
+canvas{
+    display: block;
+    margin: 20px auto;
+    border: 1px solid black;
+
+}
+
+#meme-canvas{
+    z-index: 9999;
+}
+
+.canvas-container{
+    background-color: aquamarine;
+    width: 100vw;
+    height: 500px;
+    border: 1px solid red;
+}
+
 /* helpers */
 
 .grid{

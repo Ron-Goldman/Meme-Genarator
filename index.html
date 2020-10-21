@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/main.css">
     <title>Document</title>
 </head>
-<body>
+<body onload="onInit()">
     
     <header class="header">
         <nav class="main-nav">
@@ -19,6 +19,12 @@
         </nav>
     </header>
 
+    <section class="meme-editor">
+        <div class="canvas-container">
+            <canvas id="meme-canvas" height="450" width="450" onclick="draw(event)" ></canvas>
+        </div>
+    </section>
+
     <main class="main-gallery">
         <section class="gallery-container">
             <h1>Gallery</h1>
@@ -26,8 +32,8 @@
     </main>
 
 
-    <script src="js/Service/meme-controller.js"></script>
     <script src="js/Service/meme-model.js"></script>
+    <script src="js/Service/meme-controller.js"></script>
     <script src="js/Service/utils.js"></script>
     <script src="js/Service/meme-storage.js"></script>
 
