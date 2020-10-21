@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: beige;
+}
+
+
+/* components */
+
+/* header */
+.header{
+    background-color: rgb(142, 219, 255);
+    padding: 1.5rem;
+}
+.main-nav-links{
+    grid-template-columns: 5fr 1fr 1fr 1fr;
+    
+}
+
+/* helpers */
+
+.grid{
+    display: grid;
+}
