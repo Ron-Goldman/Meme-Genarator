@@ -24,6 +24,7 @@ a {
 .layout-container {
     padding-left: 50px;
     padding-right: 50px;
+  
 }
 
 /* components */
@@ -80,6 +81,7 @@ a {
 .meme-editor {
     display: flex;
     display: none;
+    height: 70vh;
 }
 
 /* canvas */
@@ -93,7 +95,7 @@ canvas {
 .canvas-container {
     background-color: rgb(226, 249, 253);
     width: 70vw;
-    height: 100vh;
+    height: 70vh;
     border: 1px solid rgb(0, 38, 255);
 }
 
@@ -149,7 +151,7 @@ canvas {
     /* grid-template-rows: repeat(auto,22rem); */
     /* grid-auto-flow: dense; */
     gap: 1em;
-    margin: 50px;
+    margin-top: 50px;
     padding: 50px;
 }
 

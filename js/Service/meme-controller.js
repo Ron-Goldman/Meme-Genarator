@@ -32,8 +32,19 @@ function onAddImgToMeme(id){
     drawImg(id)
     document.querySelector('.meme-editor').style.display = 'flex'
     document.querySelector('.main-gallery').style.display = 'none'
+    document.querySelector('.character-container').style.display = 'none'
+    document.querySelector('.search-bar').style.display = 'none'
+
+
 
     renderCanvas()
+}
+
+function onHomePage() {
+    document.querySelector('.meme-editor').style.display = 'none'
+    document.querySelector('.main-gallery').style.display = ''
+    document.querySelector('.character-container').style.display = ''
+    document.querySelector('.search-bar').style.display = ''
 }
 
 function onFontChange(diff){
