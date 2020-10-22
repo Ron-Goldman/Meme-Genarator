@@ -10,14 +10,13 @@
 
 <body onload="onInit()">
 
-    <header class="header">
+    <header class="header layout-container">
         <nav class="main-nav">
-            <ul class="main-nav-links grid">
-                <li>LOGO</li>
-                <li>Gallery</li>
-                <li>Memes</li>
-                <li>About</li>
-            </ul>
+            <div class="main-nav-links grid">
+                <img src="images/logo/layer-2.png" alt="logo">
+                <a href="">Gallery</a>
+                <a href="">About</a>
+            </div>
         </nav>
     </header>
 
@@ -42,20 +41,30 @@
             </div>
             <div class="user-focus-text">
                 <button onclick="onFocusText()">next text</button>
+                current text: <span class="currText"></span>
+            </div>
+            <div class="user-clear-meme">
+                <button onclick="clearCanvas()">clear all texts</button>
             </div>
         </div>
     </section>
 
+    <section class="search-bar layout-container">
+        <input class="search" type="search" name="search" id="search" placeholder="Enter Search Keyword">
+        <img class="search-icon" src="images/icons/Search_Icon.svg" alt="search icon">
+
+    </section>
+
     <main class="main-gallery">
-        <h1>Gallery</h1>
+        
         <section class="gallery-container">
-            <div><img onclick="onAddImgToMeme(1)" src="images/1.jpg" alt=""></div>
-            <div><img onclick="onAddImgToMeme(2)" src="images/2.jpg" alt=""></div>
-            <div><img onclick="onAddImgToMeme(3)" src="images/3.jpg" alt=""></div>
-
-
+            
         </section>
     </main>
+
+    <section class="character-container"></section>
+
+    <footer class="footer-container"></footer>
 
 
     <script src="js/Service/meme-model.js"></script>

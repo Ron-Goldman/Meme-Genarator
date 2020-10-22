@@ -4,7 +4,29 @@
 
 body{
     margin: 0;
-    background-color: beige;
+    background-color: white
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/* Fontface */
+
+@font-face {
+    font-family: mont;
+    src: url(/fonts/Montserrat-Regular.ttf);
+}
+
+
+
+/* layout */
+
+.layout-container{
+    padding-left: 50px;
+    padding-right: 50px;
+
 }
 
 
@@ -12,13 +34,47 @@ body{
 
 /* header */
 .header{
-    background-color: rgb(142, 219, 255);
-    padding: 1.5rem;
+    background-color: #ff7f00;
+    height: 66px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
 .main-nav-links{
     display: grid;
-    grid-template-columns: 5fr 1fr 1fr 1fr;
-    
+    grid-template-columns: 5fr .5fr .5fr ;
+    margin: 0;  
+    color: white; 
+    font-size: 1.1875rem;
+    font-family: mont;
+}
+
+.main-nav-links a:not(:last-child){
+    border-right: 1px solid #040a2c;
+    text-align: center;
+}
+.main-nav-links a{
+    padding-bottom: 20px;
+    padding-top: 24px;
+
+}
+.main-nav-links a:last-child{
+    text-align: center;
+}
+
+.main-nav-links a:hover{
+    color:#040a2c;
+    border-bottom: 3px solid #040a2c;
+}
+
+.main-nav-links img{
+    align-self: center;
+}
+
+.main-nav-links img:hover{
+    cursor: pointer;
+    border-bottom: #040a2c;
 }
 
 /* meme editor */
@@ -45,22 +101,63 @@ canvas{
     border: 1px solid rgb(0, 38, 255);
 }
 
-/* gallery */
+/* search-bar and filters */
 
+.search-bar{
+    height: 10.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.search{
+    width: 261px;
+    background-color: #f5f5f5;
+    border-top:#040a2c;
+    border-right: #040a2c;
+    border-left: #040a2c;
+    outline: none;
+    background-color: transparent;
+    font-family: mont;
+}
+.search-icon{
+    width: 27px;
+}
+
+/* gallery */
+.main-gallery{
+    background-color: #e3e3e3;
+    display: flex;
+    justify-content: center;
+}
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(5,1fr);
-    grid-template-rows: repeat(5,1fr);
-    grid-auto-flow: dense;
+    grid-template-columns: repeat(3,22rem);
+    /* grid-template-rows: repeat(auto,22rem); */
+    /* grid-auto-flow: dense; */
     gap: 1em;
-    margin: 2em;
+   margin: 50px;
+   padding: 50px; 
+   
+
 }
 
 .gallery-container img{
     cursor: pointer;
+    /* width: 22rem; */
     width: 100%;
-    
 }
 
+/* character-container */
+
+.character-container{
+    height: 48em;
+}
+
+/* footer */
+
+.footer-container{
+    height: 13em;
+    background-color: #ff7f00;
+}
 /* helpers */
 
