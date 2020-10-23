@@ -22,6 +22,7 @@ function onAddText() {
 
     addTextToMeme(text);
     document.getElementById('text').value = ''
+    document.querySelector('.currText').innerText = gMeme.lines[gCurrTextIdx].txt
     if (gCurrTextIdx !== 0) gCurrTextIdx++
 
 }
@@ -53,12 +54,13 @@ function onFontChange(diff){
     changeFontSize()
 }
 
-function onMoveText(diff){
-    moveText(diff)
+function onMoveText(diffY,diffX){
+    moveText(diffY,diffX)
 
 }
 
 function onFocusText(){
+  
      (gMeme.lines.length <= gCurrTextIdx) ? gCurrTextIdx = 0 : gCurrTextIdx++
     console.log(gMeme.lines[gCurrTextIdx]);
     // focusText()

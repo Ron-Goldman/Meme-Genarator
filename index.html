@@ -22,7 +22,7 @@
 
     <section class="meme-editor">
         <div class="canvas-container">
-            <canvas id="meme-canvas" height="500" width="500" onclick="draw(event)"></canvas>
+            <canvas id="meme-canvas" height="600" width="600" onclick="draw(event)"></canvas>
         </div>
 
         <div class="user-input">
@@ -31,20 +31,28 @@
                 <input onclick="onAddText()" type="button" value="Add Text" />
             </div>
             <div class="user-font-size">
-                <button onclick="onFontChange(3)">+</button>
+                <button onclick="onFontChange(3)">A+</button>
                 font size : <span class="font-size">30</span>
-                <button onclick="onFontChange(-3)">-</button>
+                <button onclick="onFontChange(-3)">A-</button>
             </div>
             <div class="user-move-text">
-                <button onclick="onMoveText(-10)">up</button>
-                <button onclick="onMoveText(10)">down</button>
+                <button class="up" onclick="onMoveText(-10,0)">up</button>
+                <button class="down" onclick="onMoveText(10,0)">down</button>
+                <button class="right" onclick="onMoveText(0,10)">right</button>
+                <button class="left" onclick="onMoveText(0,-10)">left</button>
+
             </div>
             <div class="user-focus-text">
                 <button onclick="onFocusText()">next text</button>
-                current text: <span class="currText"></span>
+                <div> current text: <span class="currText"></span></div>
             </div>
+
             <div class="user-clear-meme">
                 <button onclick="clearCanvas()">clear all texts</button>
+            </div>
+
+            <div class="user-remove-text">
+                <button onclick="removeTextFromMeme()"><img src="images/icons/Search_Icon.svg" alt=""></button>
             </div>
         </div>
     </section>

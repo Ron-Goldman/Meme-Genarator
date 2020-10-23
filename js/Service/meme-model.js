@@ -52,8 +52,8 @@ function addTextToGmeme(text) {
         size: 30,
         align: 'left',
         color: 'red',
-        x: 100,
-        y: 200
+        x: 300,
+        y: 300
     })
 }
 
@@ -64,22 +64,18 @@ function renderCanvas() {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         gMeme.lines.forEach(function (line) {
             drawText(line.txt, line.x, line.y, line.size)
-            // if (gCurrTextIdx === line.id){
-
-            //     drawRect(line.x, line.y-line.size,gCtx.measureText(line.txt).width, line.size)
-            // }
-
         }
         )
     }
 }
 
 function addTextToMeme(text) {
-    drawText(text, gMeme.lines[gCurrTextIdx].x, gMeme.lines[gCurrTextIdx].y, gMeme.lines[gCurrTextIdx].size)
+    drawText(text, gMeme.lines[gCurrTextIdx].x, gMeme.lines[gCurrTextIdx].y, gMeme.lines[gCurrTextIdx].size,gMeme.lines[gCurrTextIdx].align)
 }
 
-function moveText(diff) {
-    gMeme.lines[gCurrTextIdx].y += diff
+function moveText(diffY,diffX) {
+    gMeme.lines[gCurrTextIdx].y += diffY
+    gMeme.lines[gCurrTextIdx].x += diffX
     var img = new Image()
     img.src = gImgs[gCurrImg].url;
     img.onload = () => {
@@ -102,9 +98,10 @@ function changeFontSize() {
 }
 //creates text
 
-function drawText(text, x, y, size) {
+function drawText(text, x, y, size,align) {
     gCtx.font = `${size}pt IMPACT`;
     gCtx.strokeStyle = 'black'
+    gCtx.textAlign = `${align}`;
     gCtx.fillStyle = 'white'
     console.log('text', gCtx.measureText(text).width);
     gCtx.fillText(text, x, y);
@@ -113,17 +110,18 @@ function drawText(text, x, y, size) {
 
 function drawImg(id) {
     var img = new Image()
-    img.src = gImgs[id-1].url;
+    img.src = gImgs[id - 1].url;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
     }
+    // gCurrImg = id ;
 }
 
 function clearCanvas() {
     gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
-    drawImg()
+    drawImg(gCurrImg + 1)
     gMeme.lines = []
 }
 
@@ -132,6 +130,16 @@ function focusText() {
         drawRect(gMeme.lines[gCurrTextIdx].x, gMeme.lines[gCurrTextIdx].y - gMeme.lines[gCurrTextIdx].size, gCtx.measureText(gMeme.lines[gCurrTextIdx].txt).width, gMeme.lines[gCurrTextIdx].size)
 
         // drawRect(gMeme.lines[gCurrTextIdx].x, gMeme.lines[gCurrTextIdx].y, gMeme.lines[gCurrTextIdx].size)
+    }
+}
+
+function removeTextFromMeme(){
+    gMeme.lines.splice(gCurrTextIdx,1)
+    var img = new Image()
+    img.src = gImgs[gCurrImg].url;
+    img.onload = () => {
+        gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
+        renderCanvas()
     }
 }
 
