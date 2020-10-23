@@ -16,13 +16,19 @@
                 <img onclick="onHomePage()" src="images/logo/layer-2.png" alt="logo">
                 <a onclick="onHomePage()" href="">Gallery</a>
                 <a href="">About</a>
+                <!-- <button class="toggle-menu-btn" onclick="toggleMenu()" alt="Open main menu">&#9776</button>
+                <div class="toggle-menu-screen screen" onclick="toggleMenu()" alt="toggle main menu"></div>
+                <div class="main-menu">
+                    <a onclick="onHomePage()" href="">Gallery</a>
+                <a href="">About</a> -->
+                </div>
             </div>
         </nav>
     </header>
 
     <section class="meme-editor">
         <div class="canvas-container">
-            <canvas id="meme-canvas" height="600" width="600" onclick="draw(event)"></canvas>
+            <canvas id="meme-canvas" height="550" width="550" onclick="draw(event)"></canvas>
         </div>
 
         <div class="user-input">
@@ -32,28 +38,29 @@
             </div>
             <div class="user-font-size">
                 <button onclick="onFontChange(3)">A+</button>
-                font size : <span class="font-size">30</span>
+                font size : <span class="font-size">50</span>
                 <button onclick="onFontChange(-3)">A-</button>
             </div>
             <div class="user-move-text">
-                <button class="up" onclick="onMoveText(-10,0)">up</button>
-                <button class="down" onclick="onMoveText(10,0)">down</button>
-                <button class="right" onclick="onMoveText(0,10)">right</button>
-                <button class="left" onclick="onMoveText(0,-10)">left</button>
+                <button class="up" onclick="onMoveText(-10,0)">&#8593</button>
+                <button class="down" onclick="onMoveText(10,0)">&#8595</button>
+                <button class="right" onclick="onMoveText(0,10)">&#8594</button>
+                <button class="left" onclick="onMoveText(0,-10)">&#8592</button>
 
             </div>
             <div class="user-focus-text">
                 <button onclick="onFocusText()">next text</button>
+                <button class="user-remove-text" onclick="onRemoveTextFromMeme()"><img src="images/icons/trash.png"
+                        alt=""></button>
                 <div> current text: <span class="currText"></span></div>
+
+
             </div>
 
             <div class="user-clear-meme">
                 <button onclick="clearCanvas()">clear all texts</button>
             </div>
 
-            <div class="user-remove-text">
-                <button onclick="removeTextFromMeme()"><img src="images/icons/Search_Icon.svg" alt=""></button>
-            </div>
         </div>
     </section>
 

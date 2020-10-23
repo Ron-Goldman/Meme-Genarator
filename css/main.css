@@ -12,6 +12,7 @@ a {
     color: white;
 }
 
+
 /* Fontface */
 
 @font-face {
@@ -81,19 +82,23 @@ a {
     display: flex;
     display: none;
     height: 70vh;
+    background-color: #e3e3e3;
+    padding-right: 130px;
 }
 
-.user-input{
+.user-input {
+    background-color: #e3e3e3;
     font-family: mont;
     font-size: 2.875rem;
     font-weight: 500;
     display: flex;
     flex-direction: column;
+    width: 50vw;
 }
 
 .user-input button {
-    min-width: 60px;
-    min-height: 60px;
+    width: 60px;
+    height: 60px;
     border-radius: 12px;
     margin: 5px;
     background-color: #ffffff;
@@ -102,9 +107,20 @@ a {
     font-weight: 500;
 }
 
-.user-input button:hover{
+.user-input button:hover {
     cursor: pointer;
     background-color: #e3e3e3;
+}
+
+.user-remove-text img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    margin: 5px;
+    background-color: #ffffff;
+    font-family: mont;
+    font-size: 2.875rem;
+    font-weight: 500;
 }
 
 .user-text input {
@@ -112,46 +128,51 @@ a {
     height: 60px;
     font-size: 20px;
     font-family: mont;
+    padding:0;
 }
 
-.user-move-text{
+.user-move-text {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(2,1fr);
-    grid-template-areas:
-     " . up ." 
-     "left down right "
-    ;
-   
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: " . up ." "left down right ";
+    margin: auto;
 }
-.user-move-text .up{
+
+.user-move-text .up {
     grid-area: up;
 }
-.user-move-text .down{
+
+.user-move-text .down {
     grid-area: down;
 }
-.user-move-text .right{
+
+.user-move-text .right {
     grid-area: right;
 }
-.user-move-text .left{
+
+.user-move-text .left {
     grid-area: left;
 }
 
-
-
-.user-font-size button {}
+.currText {
+    color: #ff7f00;
+    font-family: mont;
+    font-weight: 600;
+    text-underline-position: below;
+}
 
 /* canvas */
 
 canvas {
-    display: block;
     margin: 20px auto;
     border: 1px solid black;
 }
 
 .canvas-container {
-    width: 70vw;
+    width: 50%;
     height: 70vh;
+    padding-left: 50px;
 }
 
 /* search-bar and filters */
@@ -202,17 +223,17 @@ canvas {
 
 .gallery-container {
     display: grid;
-    grid-template-columns: repeat(3, 22rem);
+    grid-template-columns: repeat(auto-fill, 22rem);
     /* grid-template-rows: repeat(auto,22rem); */
-    /* grid-auto-flow: dense; */
+    grid-auto-flow: dense;
     gap: 1em;
     margin-top: 50px;
     padding: 50px;
+    width: 100vw;
 }
 
 .gallery-container img {
     cursor: pointer;
-    /* width: 22rem; */
     width: 100%;
 }
 
@@ -222,6 +243,7 @@ canvas {
     height: 35.4em;
     display: flex;
     margin-top: 78px;
+    font-family: mont;
 }
 
 .character-container img {
@@ -249,3 +271,135 @@ canvas {
 }
 
 /* helpers */
+
+.flex {
+    display: flex;
+}
+
+@media screen and (max-width: 500px) {
+    /* gallery  */
+    .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 0;
+        padding: 1em;
+        gap: 8px;
+        width: 100vw;
+    }
+    .layout-container {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 0;
+    }
+    /* header  */
+    .header {
+        position: fixed;
+        top: 0;
+        width: 100vw;
+        height: 50px;
+    }
+    .search-bar {
+        height: 100px;
+    }
+    .main-nav-links a {
+        display: none;
+    }
+    .main-nav {
+        padding-right: 0;
+    }
+    /* charchter  */
+    .character-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 38px;
+        margin-right: 38px;
+        padding-right: 0;
+        margin-top: 2em;
+    }
+    .character-container img {
+        width: 158px;
+        height: 158px;
+        border-radius: 50%;
+    }
+    .character-container p {
+        text-align: center;
+    }
+    /* footer  */
+    .footer-container {
+        height: 207px;
+    }
+    /* toggle ment mobile  */
+    .main-menu {
+        height: 168px;
+        background-color: #ff7f00;
+        position: fixed;
+        top: 0;
+        display: none;
+    }
+    /* meme editor  */
+    .meme-editor {
+        flex-direction: column;
+        font-size: 1em;
+        padding-right: 0;
+        margin-top: 35px;
+       
+    }
+    .user-input{
+        width: 100vw;
+    }
+    
+    .user-text input {
+        width: 100vw;
+        height: 40px;
+    }
+    .user-font-size{
+        display: flex;
+        font-size: 16px;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-around;
+        
+
+    }
+    .user-font-size button {
+        font-size: 16px;
+        width: 40px;
+        height: 40px;
+    }
+    .user-move-text button{
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+
+    }
+
+    .user-focus-text{
+        display: inline-block
+    }
+
+    .user-focus-text button{
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    .user-focus-text img{
+        width: 40px;
+        height: 40px;
+        
+    }
+
+    .user-clear-meme button{
+        font-size: 16px;
+        display: inline-block
+
+    }
+    .footer-container {
+        display: none;
+    }
+    /* canvas  */
+
+    canvas{
+        margin: 20px 0 -19px -15px;
+    }
+}

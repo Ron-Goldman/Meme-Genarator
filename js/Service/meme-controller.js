@@ -7,6 +7,9 @@ function onInit() {
     createGallery()
     gCanvas = document.querySelector('#meme-canvas');
     gCtx = gCanvas.getContext('2d');
+
+    // window.addEventListener('resize', resizeCanvas, false);
+    if (window.innerWidth < 700) resizeCanvas()
     drawImg()
     renderCanvas()
     drawRect(100,100,40,40)
@@ -35,7 +38,6 @@ function onAddImgToMeme(id){
     document.querySelector('.main-gallery').style.display = 'none'
     document.querySelector('.character-container').style.display = 'none'
     document.querySelector('.search-bar').style.display = 'none'
-
 
 
     renderCanvas()
@@ -68,8 +70,33 @@ function onFocusText(){
     document.querySelector('.currText').innerText = gMeme.lines[gCurrTextIdx].txt
 }
 
+function onRemoveTextFromMeme(){
+    removeTextFromMeme()
+    document.querySelector('.currText').innerText = ''
+
+}
+
 function draw(ev){
     console.log('X : ',ev.offsetX);
     console.log('Y : ',ev.offsetY);
 
 }
+function toggleMenu() {
+    var mainMenu = document.getElementById('mainMenu');
+    console.log(mainMenu);
+    mainMenu.classList.toggle('open');
+}
+
+
+  
+    function resizeCanvas() {
+      gCanvas.width = 300;
+      gCanvas.height = 300;
+  
+      // Redraw everything after resizing the window
+      renderCanvas(); 
+    }
+    
+  
+    
+  

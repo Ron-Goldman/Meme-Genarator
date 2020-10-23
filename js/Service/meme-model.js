@@ -52,8 +52,8 @@ function addTextToGmeme(text) {
         size: 30,
         align: 'left',
         color: 'red',
-        x: 300,
-        y: 300
+        x: 100,
+        y: 100
     })
 }
 
@@ -71,6 +71,7 @@ function renderCanvas() {
 
 function addTextToMeme(text) {
     drawText(text, gMeme.lines[gCurrTextIdx].x, gMeme.lines[gCurrTextIdx].y, gMeme.lines[gCurrTextIdx].size,gMeme.lines[gCurrTextIdx].align)
+    
 }
 
 function moveText(diffY,diffX) {
