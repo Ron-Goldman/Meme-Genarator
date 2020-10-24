@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
     <title>Document</title>
 </head>
 
@@ -58,6 +59,24 @@
 
             <div class="user-clear-meme">
                 <button onclick="clearCanvas()">clear all texts</button>
+            </div>
+            <div class="user-download">
+                <button onclick="saveMeme()">&#128190</button>
+            </div>
+            <div class="share">
+                <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                    <input name="img" id="imgData" type="hidden" />
+                    <button class="btn" type="submit"><a href="#" class="fa fa-facebook"></a> </button>
+                    <div class="share-container"></div>
+                  </form>
+            </div>
+            <div class="user-color-fill">
+                <input type="color" value="#ffffff" id="fill-color" class="fill-color">
+                <button onclick="setFillColor()" >Fill</button>
+            </div>
+            <div class="user-color-stroke">
+                <input type="color" value="white" id="stroke-color" class="stroke-color">
+                <button onclick="setstrokeColor()" >Border</button>
             </div>
 
         </div>

@@ -166,6 +166,27 @@ a {
     text-underline-position: below;
 }
 
+.user-color-stroke{
+    display: flex;
+
+}
+
+.user-color-fill input{
+    width: 60px;
+    height: 60px;
+    border-radius: 10%;
+    
+}
+.user-color-stroke input{
+    width: 60px;
+    height: 60px;
+    border-radius: 10%;
+    
+}
+.share-container{
+    color: #ff7f00;
+}
+
 /* canvas */
 
 canvas {
@@ -279,6 +300,18 @@ canvas {
 .flex {
     display: flex;
 }
+
+.btn{
+    height: 60px;
+    width: 60px;
+}
+.fa-facebook {  
+    background: #3B5998;  
+    color: white; 
+    border-radius: 50%; 
+    height: 40px;
+    width: 40px;
+  }  
 
 @media screen and (max-width: 500px) {
     
@@ -401,8 +434,39 @@ canvas {
     }
     .user-clear-meme button {
         font-size: 16px;
-        display: inline-block
+        
     }
+    .user-color{
+        display: flex;
+    }
+    
+    .user-color-fill input{
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .user-color-fill button{
+        font-size: 1em;
+    }
+
+    .user-color-stroke input{
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .user-color-stroke button{
+        font-size: 1em;
+    }
+
+    .user-download button{
+        font-size: 1em;
+    }
+
+    
+    
+
     .footer-container{
       height: 100px;
       display: none;

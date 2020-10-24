@@ -51,7 +51,8 @@ function addTextToGmeme(text) {
         txt: text,
         size: 30,
         align: 'left',
-        color: 'red',
+        color: '#ff0080',
+        stroke: 'black',
         x: 100,
         y: 100
     })
@@ -63,18 +64,18 @@ function renderCanvas() {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
         gMeme.lines.forEach(function (line) {
-            drawText(line.txt, line.x, line.y, line.size)
+            drawText(line.txt, line.x, line.y, line.size, line.color , line.stroke)
         }
         )
     }
 }
 
 function addTextToMeme(text) {
-    drawText(text, gMeme.lines[gCurrTextIdx].x, gMeme.lines[gCurrTextIdx].y, gMeme.lines[gCurrTextIdx].size,gMeme.lines[gCurrTextIdx].align)
-    
+    drawText(text, gMeme.lines[gCurrTextIdx].x, gMeme.lines[gCurrTextIdx].y, gMeme.lines[gCurrTextIdx].size, gMeme.lines[gCurrTextIdx].align)
+
 }
 
-function moveText(diffY,diffX) {
+function moveText(diffY, diffX) {
     gMeme.lines[gCurrTextIdx].y += diffY
     gMeme.lines[gCurrTextIdx].x += diffX
     var img = new Image()
@@ -99,16 +100,46 @@ function changeFontSize() {
 }
 //creates text
 
-function drawText(text, x, y, size,align) {
+function drawText(text, x, y, size, color,line) {
     gCtx.font = `${size}pt IMPACT`;
     gCtx.lineWidth = 3
-    gCtx.strokeStyle = 'black'
-    gCtx.textAlign = `${align}`;
-    gCtx.fillStyle = 'white'
+    gCtx.strokeStyle = `${line}`
+    gCtx.strokeText(text, x, y)
+    // gCtx.textAlign = `${align}`;
+    gCtx.fillStyle = `${color}`
     console.log('text', gCtx.measureText(text).width);
     gCtx.fillText(text, x, y);
 }
 
+function setFillColor() {
+    gMeme.lines[gCurrTextIdx].color = document.querySelector('.fill-color').value
+    renderCanvas()
+}
+
+function setstrokeColor() {
+    gMeme.lines[gCurrTextIdx].stroke = document.querySelector('.stroke-color').value
+    renderCanvas()
+}
+
+function saveMeme(){
+    let canvasImage = document.getElementById('meme-canvas').toDataURL('image/png');
+
+    // this can be used to download any image from webpage to local disk
+    let xhr = new XMLHttpRequest();
+    xhr.responseType = 'blob';
+    xhr.onload = function () {
+        let a = document.createElement('a');
+        a.href = window.URL.createObjectURL(xhr.response);
+        a.download = 'image_name.jpg';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        a.remove()
+      };
+      xhr.open('GET', canvasImage); // This is to download the canvas Image
+      xhr.send();
+
+}
 
 function drawImg(id) {
     var img = new Image()
@@ -135,8 +166,8 @@ function focusText() {
     }
 }
 
-function removeTextFromMeme(){
-    gMeme.lines.splice(gCurrTextIdx,1)
+function removeTextFromMeme() {
+    gMeme.lines.splice(gCurrTextIdx, 1)
     var img = new Image()
     img.src = gImgs[gCurrImg].url;
     img.onload = () => {
@@ -151,5 +182,36 @@ function drawRect(x, y, width, size) {
     gCtx.rect(x, y, width, size)
     gCtx.strokeStyle = 'black'
     gCtx.stroke()
+}
+
+function uploadImg(elForm, ev) {
+    ev.preventDefault();
+    document.getElementById('imgData').value = gCanvas.toDataURL("image/jpeg");
+
+    // A function to be called if request succeeds
+    function onSuccess(uploadedImgUrl) {
+        uploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        document.querySelector('.share-container').innerHTML = `
+        <a class="btn" href="https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+        Share on Facebook 
+        </a>`
+    }
+
+    doUploadImg(elForm, onSuccess);
+}
+
+function doUploadImg(elForm, onSuccess) {
+    var formData = new FormData(elForm);
+    fetch('http://ca-upload.com/here/upload.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(function (res) {
+        return res.text()
+    })
+    .then(onSuccess)
+    .catch(function (err) {
+        console.error(err)
+    })
 }
 
