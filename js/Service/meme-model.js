@@ -101,6 +101,7 @@ function changeFontSize() {
 
 function drawText(text, x, y, size,align) {
     gCtx.font = `${size}pt IMPACT`;
+    gCtx.lineWidth = 3
     gCtx.strokeStyle = 'black'
     gCtx.textAlign = `${align}`;
     gCtx.fillStyle = 'white'
