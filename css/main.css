@@ -405,13 +405,11 @@ canvas {
     }
     .footer-container{
       height: 100px;
+      display: none;
     }
     /* canvas  */
     canvas {
         margin: 20px 0 -19px -15px;
     }
 
-    .canvas-container {
-        width: 50%;
-        height: 35vh;
 }
