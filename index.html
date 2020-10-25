@@ -11,27 +11,25 @@
 
 <body onload="onInit()">
 
+    <!-- HEADER -->
     <header class="header ">
         <nav class="main-nav layout-container">
             <div class="main-nav-links grid">
                 <img onclick="onHomePage()" src="images/logo/layer-2.png" alt="logo">
                 <a onclick="onHomePage()" href="">Gallery</a>
-                <a href="">About</a>
-                <!-- <button class="toggle-menu-btn" onclick="toggleMenu()" alt="Open main menu">&#9776</button>
-                <div class="toggle-menu-screen screen" onclick="toggleMenu()" alt="toggle main menu"></div>
-                <div class="main-menu">
-                    <a onclick="onHomePage()" href="">Gallery</a>
-                <a href="">About</a> -->
-                </div>
+                <a href="#about">About</a>
             </div>
         </nav>
     </header>
 
+    <!-- EDITOR -->
     <section class="meme-editor">
+        <!-- CANVAS -->
         <div class="canvas-container">
             <canvas id="meme-canvas" height="550" width="550" onclick="draw(event)"></canvas>
         </div>
 
+        <!-- CONTROLS -->
         <div class="user-input">
             <div class="user-text">
                 <input class="text-input" id="text" type="text" value="" placeholder="type here to add" />
@@ -71,12 +69,12 @@
                   </form>
             </div>
             <div class="user-color-fill">
-                <input type="color" value="#ffffff" id="fill-color" class="fill-color">
-                <button onclick="setFillColor()" >Fill</button>
+                <input type="color" title="Color" value="#ffffff" id="fill-color" oninput="setFillColor()" class="fill-color">
+                
             </div>
             <div class="user-color-stroke">
-                <input type="color" value="white" id="stroke-color" class="stroke-color">
-                <button onclick="setstrokeColor()" >Border</button>
+                <input type="color" title="Border Color" value="white" id="stroke-color" oninput="setstrokeColor()" class="stroke-color">
+                
             </div>
 
         </div>
@@ -84,35 +82,37 @@
 
     <section class="search-bar layout-container">
         <input class="search" type="search" name="search" id="search" placeholder="Enter Search Keyword">
-        <img class="search-icon" src="images/icons/Search_Icon.svg" alt="search icon">
+        <img onclick="onSearchMemeByKeyword()"   class="search-icon" src="images/icons/Search_Icon.svg" alt="search icon">
 
         <div class="keywords">
-            <div class="funny">Funny</div>
-            <div class="comics">Comics</div>
-            <div class="dogs">Dogs</div>
-            <div class="drinks">Drinks</div>
-            <div class="books">Books</div>
-            <div class="more"><a>More..</a></div>
+            <div onclick="onSearchMemeByKeyword('funny')" class="funny">Funny</div>
+            <div onclick="onSearchMemeByKeyword('pets')" class="pets">Pets</div>
+            <div onclick="onSearchMemeByKeyword('cute')" class="cute">Cute</div>
+            <div onclick="onSearchMemeByKeyword('laughing')" class="laughing">Laughing</div>
+            <div onclick="onSearchMemeByKeyword('movies')" class="movies">movies</div>
+            <!-- <div onclick="onSearchMemeByKeyword('funny')" class="more"><a>More..</a></div> -->
         </div>
 
     </section>
 
     <main class="main-gallery">
-
-        <section class="gallery-container layout-container">
-
-        </section>
+        <section class="gallery-container layout-container"></section>
     </main>
 
-    <section class="character-container layout-container">
-
-        <img src="images/meme.jpg" alt="famous meme">
-        <p>Kayode Ewumi is an actor and writer and the star of #HoodDocumentary (originally made and self-published on
-            YouTube (Watch: Introducing R.S, All About Impulse) and picked up for a 2nd series by BBC Three (Watch:
-            Happy Belated, Family Business, Yoga Class, Job Centre, Launch Party, Launch Party Part 2).
-
-            He is also the creator of BBC Three's Enterprice which was a BBC Three Comedy Slice pilot in 2018 and picked
-            up for a full series </p>
+    <section id="about" class="character-container layout-container">
+        <img src="images/profile.jpeg" alt="profile">
+        <div class="profile">
+        <h1>Ron Goldman</h1>
+        <p> Israeli full stack developer (student), living in Tel aviv. <br>
+            former marketer at Yad2 with a passion for new adventures and exploring
+            new technologies 
+         </p>
+            <div class="social-btn">
+                <a href="https://www.facebook.com/rgol8/"><img src="images/icons/facebook-square.png" alt=""></a>
+                <a href="https://www.instagram.com/ron6goldman/"><img src="images/icons/instagram-square (1).png" alt=""></a>
+                <a href="https://github.com/Ron-Goldman"><img src="images/icons/github-square.png" alt=""></a>
+            </div>
+        </div>
     </section>
 
     <footer class="footer-container">
@@ -121,10 +121,11 @@
     </footer>
 
 
-    <script src="js/Service/meme-model.js"></script>
-    <script src="js/Service/meme-controller.js"></script>
-    <script src="js/Service/utils.js"></script>
-    <script src="js/Service/meme-storage.js"></script>
+    <script src="js/services/utils.js"></script>
+    <script src="js/services/meme-storage.js"></script>
+    <script src="js/services/upload-service.js"></script>
+    <script src="js/services/meme-model.js"></script>
+    <script src="js/meme-controller.js"></script>
 
 </body>
 

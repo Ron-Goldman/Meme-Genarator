@@ -102,18 +102,18 @@ a {
 }
 
 .user-input button {
-    
     border-radius: 12px;
     margin: 5px;
     background-color: #ffffff;
     font-family: mont;
     font-size: 2.875rem;
     font-weight: 500;
+    text-decoration: none;
 }
 
 .user-input button:hover {
     cursor: pointer;
-    background-color: #e3e3e3;
+    background-color: #ff7f00;
 }
 
 .user-remove-text img {
@@ -133,6 +133,7 @@ a {
     font-size: 20px;
     font-family: mont;
     padding: 0;
+    border: 0;
 }
 
 .user-move-text {
@@ -166,24 +167,22 @@ a {
     text-underline-position: below;
 }
 
-.user-color-stroke{
+.user-color-stroke {
     display: flex;
-
 }
 
-.user-color-fill input{
+.user-color-fill input , .user-color-stroke input{
     width: 60px;
     height: 60px;
     border-radius: 10%;
-    
 }
-.user-color-stroke input{
-    width: 60px;
-    height: 60px;
-    border-radius: 10%;
-    
+
+.user-color-fill input , .user-color-stroke input:hover{
+    cursor: pointer;
 }
-.share-container{
+
+
+.share-container {
     color: #ff7f00;
 }
 
@@ -222,20 +221,22 @@ canvas {
 .search-icon {
     width: 27px;
 }
+.search-icon:hover{
+    cursor: pointer;
+}
 
 .keywords {
     display: flex;
     justify-content: space-around;
     width: 100%;
     margin-left: 150px;
+    font-family: mont;
+    font-weight: bold;
 }
 
-.keywords:hover {
+.keywords>*:hover {
     cursor: pointer;
-}
-
-.keywords a {
-    color: #040a2c;
+    color: #ff7f00;
 }
 
 /* gallery */
@@ -262,19 +263,42 @@ canvas {
     width: 100%;
 }
 
+.gallery-container img:hover{
+    opacity: 0.8;
+    border: 1px solid rgb(15, 12, 9);
+}
+
 /* character-container */
 
 .character-container {
-    height: 35.4em;
+    height:100%;
+    
     display: flex;
-    margin-top: 78px;
+    margin: 78px 155px;
     font-family: mont;
 }
 
 .character-container img {
-    max-width: 322px;
-    max-height: 322px;
+    width: 322px;
+    height: 322px;
     border-radius: 50%;
+    margin-right: 40px;
+}
+
+.profile{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    height: 320px;
+}
+
+.social-btn{
+    width:250px
+}
+
+.social-btn img{
+    width: 40px;
+    height: 40px;
 }
 
 /* footer */
@@ -301,20 +325,20 @@ canvas {
     display: flex;
 }
 
-.btn{
+.btn {
     height: 60px;
     width: 60px;
 }
-.fa-facebook {  
-    background: #3B5998;  
-    color: white; 
-    border-radius: 50%; 
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+    border-radius: 50%;
     height: 40px;
     width: 40px;
-  }  
+}
 
 @media screen and (max-width: 500px) {
-    
     /* gallery  */
     .gallery-container {
         display: grid;
@@ -330,7 +354,7 @@ canvas {
         padding-left: 0;
     }
     .keywords {
-        display: none;
+        margin: 0;
     }
     /* header  */
     .header {
@@ -341,6 +365,7 @@ canvas {
     }
     .search-bar {
         min-height: 100px;
+        flex-direction: column-reverse;
     }
     .main-nav-links a {
         display: none;
@@ -380,7 +405,6 @@ canvas {
     }
     /* meme editor  */
     .meme-editor {
-        
         flex-direction: column;
         font-size: 1em;
         padding-right: 0;
@@ -392,10 +416,8 @@ canvas {
         grid-template-rows: none;
         font-size: 1em;
         margin-top: 20px;
-
     }
-
-    .user-text{
+    .user-text {
         grid-column: 1/4;
     }
     .user-text input {
@@ -434,46 +456,35 @@ canvas {
     }
     .user-clear-meme button {
         font-size: 16px;
-        
     }
-    .user-color{
+    .user-color {
         display: flex;
     }
-    
-    .user-color-fill input{
+    .user-color-fill input {
         width: 40px;
         height: 40px;
         font-size: 16px;
     }
-
-    .user-color-fill button{
+    .user-color-fill button {
         font-size: 1em;
     }
-
-    .user-color-stroke input{
+    .user-color-stroke input {
         width: 40px;
         height: 40px;
         font-size: 16px;
     }
-
-    .user-color-stroke button{
+    .user-color-stroke button {
         font-size: 1em;
     }
-
-    .user-download button{
+    .user-download button {
         font-size: 1em;
     }
-
-    
-    
-
-    .footer-container{
-      height: 100px;
-      display: none;
+    .footer-container {
+        height: 100px;
+        display: none;
     }
     /* canvas  */
     canvas {
         margin: 20px 0 -19px -15px;
     }
-
 }
