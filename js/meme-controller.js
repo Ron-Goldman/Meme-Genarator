@@ -53,12 +53,12 @@ function onMoveText(diffY, diffX) {
 
 function onFocusText() {
     const meme = getMeme();
-    const currLine = getCurrLine()
+    // const currLine = getCurrLine()
     (meme.lines.length <= gCurrTextIdx) ? gCurrTextIdx = 0 : gCurrTextIdx++
-    console.log(currLine);
+    console.log(gMeme.lines[gCurrTextIdx]);
     // focusText()
-    if (currLine === undefined) document.querySelector('.currText').innerText = ''
-    document.querySelector('.currText').innerText = currLine.txt
+    if (gMeme.lines[gCurrTextIdx] === undefined) document.querySelector('.currText').innerText = ''
+    document.querySelector('.currText').innerText = gMeme.lines[gCurrTextIdx].txt
 }
 
 function onRemoveTextFromMeme() {
@@ -99,5 +99,12 @@ function resizeCanvas() {
     renderCanvas();
 }
 
+function getCurrLine() {
+    return gMeme.lines[gCurrTextIdx]
+}
+
+function getMeme() {
+    return gMeme;
+}
 
 
