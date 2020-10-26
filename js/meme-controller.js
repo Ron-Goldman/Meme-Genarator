@@ -47,6 +47,11 @@ function onFontChange(diff) {
     changeFontSize()
 }
 
+function onClearCanvas(){
+    document.querySelector('.currText').innerText = ''
+    clearCanvas()
+}
+
 function onMoveText(diffY, diffX) {
     moveText(diffY, diffX)
 }
@@ -59,6 +64,17 @@ function onFocusText() {
     // focusText()
     if (gMeme.lines[gCurrTextIdx] === undefined) document.querySelector('.currText').innerText = ''
     document.querySelector('.currText').innerText = gMeme.lines[gCurrTextIdx].txt
+}
+
+function dynamicText(){
+    document.querySelector('.text-input').addEventListener('input', () => {
+        var text = document.getElementById('text').value
+        drawText(text, 100, 100, 30,'#ffffff')
+        if (document.querySelector('.text-input').value) document.querySelector('.add-text').style.backgroundColor = '#ff7f00'
+    } )   
+    // renderCanvas()
+//    if (document.querySelector('.text-input').value) document.querySelector('.add-text').style.backgroundColor = '#ff7f00'
+    console.log(document.querySelector('.text-input').value);
 }
 
 function onRemoveTextFromMeme() {

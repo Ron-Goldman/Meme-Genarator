@@ -32,8 +32,8 @@
         <!-- CONTROLS -->
         <div class="user-input">
             <div class="user-text">
-                <input class="text-input" id="text" type="text" value="" placeholder="type here to add" />
-                <input onclick="onAddText()" type="button" value="Add Text" />
+                <input onkeyup="dynamicText()" class="text-input" id="text" type="text" value="" placeholder="type here to add" />
+                <input class="add-text" onclick="onAddText()" type="button" value="Add Text" />
             </div>
             <div class="user-font-size">
                 <button onclick="onFontChange(3)">A+</button>
@@ -56,7 +56,7 @@
             </div>
 
             <div class="user-clear-meme">
-                <button onclick="clearCanvas()">clear all texts</button>
+                <button onclick="onClearCanvas()">clear all texts</button>
             </div>
             <div class="user-download">
                 <button onclick="saveMeme()">&#128190</button>

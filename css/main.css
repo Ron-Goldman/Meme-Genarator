@@ -111,6 +111,12 @@ a {
     text-decoration: none;
 }
 
+.add-text:hover{
+    background-color: #ff7f00;
+    cursor: pointer;
+
+}
+
 .user-input button:hover {
     cursor: pointer;
     background-color: #ff7f00;
